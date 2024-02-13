@@ -1,49 +1,62 @@
-package common.visobject.com.experiment;
+package com.deervalley.poc.experiment;
 
 import java.util.Arrays;
 
-class MyStackWithLinkedList {
+class MyQueueWithLinkedList {
 	class Node {
 		private Object value = null;
 		private Node next = null;
-		
 		public Node(Object value) {
 			this.value = value;
 		}
 	}
 	
 	private int size = 0;
-	private Node top = null;
+	private Node first = null;
+	private Node last = null;
 	
-	public MyStackWithLinkedList() {
+	public MyQueueWithLinkedList() {
 	}
 	
 	public Object peek() {
-		if (top == null) {
+		if (first == null) {
 			return null;
 		} else {
-			return top.value;
+			return first.value;
 		}
 	}
 	
-	//O(1)
-	public void push(Object value) {
+	//O(1) add after last
+	public void enqueue(Object value) {
 		Node newNode = new Node(value);
-		newNode.next = top;
-		top = newNode;
 
+		if (last != null) {
+			//for non empty queue
+			last.next = newNode;
+		} else {
+			//for empty queue
+			first = newNode;
+		}
+		
+		last = newNode;
+		
 		size++;
 	}
 
-	//O(1)
-	public Object pop() {
+	//O(1) remove the first
+	public Object dequeue() {
 	
-		if (top != null) {
-			Node popped = top;
-			top = top.next;
-			popped.next = null;
+		if (first != null) {
+			Node node = first;
+			first = node.next;
+
+			node.next = null;
+			if (size == 1) {
+				last = first;
+			}
+			
 			size--;
-			return popped.value;
+			return node.value;
 		} else {
 			return null;
 		}
@@ -58,7 +71,7 @@ class MyStackWithLinkedList {
 		Object[] list = new Object[size];
 		
 		int pos = 0;
-		Node node = top;
+		Node node = first;
 		while (node != null) {
 			list[pos] = node.value;
 			node = node.next;

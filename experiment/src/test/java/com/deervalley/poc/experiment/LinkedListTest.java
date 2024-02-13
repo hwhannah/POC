@@ -1,8 +1,10 @@
-package common.visobject.com.experiment;
+package com.deervalley.poc.experiment;
 
 import java.util.Arrays;
 
 import org.junit.Test;
+
+import com.deervalley.poc.experiment.MyLinkedList;
 
 
 public class LinkedListTest {

@@ -1,4 +1,4 @@
-package common.visobject.com.experiment;
+package com.deervalley.poc.experiment;
 
 class MyArray {
 	private int length = 0;

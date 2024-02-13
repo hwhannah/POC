@@ -1,4 +1,4 @@
-package common.visobject.com.experiment;
+package com.deervalley.poc.experiment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

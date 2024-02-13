@@ -1,4 +1,4 @@
-package common.visobject.com.experiment;
+package com.deervalley.poc.experiment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import org.junit.Test;
+
+import com.deervalley.poc.experiment.MyArray;
 
 
 public class ArrayTest {
